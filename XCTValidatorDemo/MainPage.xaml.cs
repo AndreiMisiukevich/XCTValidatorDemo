@@ -14,5 +14,12 @@ namespace XCTValidatorDemo
         {
             InitializeComponent();
         }
+
+        void OnSignUpClicked(object sender, EventArgs e)
+        {
+            EmailValidator.ForceValidate();
+            PasswordValidator.ForceValidate();
+            RepeatPasswordValidator.ForceValidate();
+        }
     }
 }

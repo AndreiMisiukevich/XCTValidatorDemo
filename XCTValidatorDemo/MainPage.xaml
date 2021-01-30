@@ -27,14 +27,18 @@
         <Entry Placeholder="Email"
                Keyboard="Email">
             <Entry.Behaviors>
-                <xct:EmailValidationBehavior DecorationFlags="Trim"
+                <xct:EmailValidationBehavior
+                    x:Name="EmailValidator"
+                    DecorationFlags="Trim"
                     InvalidStyle="{StaticResource InvalidStyle}" />
             </Entry.Behaviors>
         </Entry>
 
         <Entry x:Name="PasswordEntry" Placeholder="Password">
             <Entry.Behaviors>
-                <xct:MultiValidationBehavior InvalidStyle="{StaticResource InvalidStyle}">
+                <xct:MultiValidationBehavior
+                    x:Name="PasswordValidator"
+                    InvalidStyle="{StaticResource InvalidStyle}">
                     <xct:TextValidationBehavior MinimumLength="6"  />
                     <xct:CharactersValidationBehavior CharacterType="Digit" MinimumCharacterCount="1" />
                     <xct:CharactersValidationBehavior CharacterType="LowercaseLetter" MinimumCharacterCount="1" />
@@ -47,14 +51,17 @@
 
         <Entry Placeholder="Repeat Password">
             <Entry.Behaviors>
-                <xct:RequiredStringValidationBehavior InvalidStyle="{StaticResource InvalidStyle}"
+                <xct:RequiredStringValidationBehavior
+                    x:Name="RepeatPasswordValidator"
+                    InvalidStyle="{StaticResource InvalidStyle}"
                     RequiredString="{Binding Text, Source={x:Reference PasswordEntry}}" />
             </Entry.Behaviors>
         </Entry>
 
         <Button Text="Sign Up"
                 TextColor="White"
-                BackgroundColor="Purple" />
+                BackgroundColor="Purple"
+                Clicked="OnSignUpClicked"/>
 
     </StackLayout>
 
